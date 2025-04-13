@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <title>Bài kiểm tra</title>
+    <link rel="stylesheet" href="/css/check-test.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <a class="navbar-brand" href="#">QuizzForge</a>
+      <div class="nav-links">
+        <a href="#">Trang chủ</a>
+        <a href="#" id="goBack">Đăng xuất</a>
+      </div>
+    </div>
+
+    <div class="test">
+      <div class="sidebar">
+        <h3>Điều hướng nhanh</h3>
+        <div class="question-nav"></div>
+      </div>
+
+      <div class="container">
+        <div class="timer">
+          <div class="timer-title" id="timerTitle">Thời gian : 25 phút</div>
+          <div class="timer-remaining">
+            <i class="fa-regular fa-clock"></i>
+            <span id="countdown">25:00</span>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <img src="/assets/images/quiz2.webp" alt="Quiz image" />
+          <h2 id="testTitle">Tên bài test</h2>
+          <p><strong id="questionCounter">Câu hỏi 1 trên 10:</strong></p>
+          <p id="questionText">Nội dung câu hỏi</p>
+          <div id="optionsContainer"></div>
+        </div>
+
+        <div class="buttons">
+          <button class="prev">Trước</button>
+          <button class="next">Tiếp</button>
+          <button class="complete">Nộp bài</button>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Overlay -->
+    <div id="resultModal" class="modal-overlay">
+      <div class="modal-box">
+        <button class="close-btn" id="closeModalBtn">&times;</button>
+
+        <div class="modal-success">
+          <h3>Chúc mừng!</h3>
+          <p>Bạn đã hoàn thành bài kiểm tra</p>
+          <p><strong id="modalScore">Điểm của bạn: </strong></p>
+        </div>
+
+        <div class="modal-result">
+          <h4>Kết quả cụ thể</h4>
+          <p>
+            <strong>Tổng số câu hỏi:</strong> <span id="totalQuestions"></span>
+          </p>
+          <p>
+            <strong>Câu trả lời đúng:</strong> <span id="correctAnswers"></span>
+          </p>
+          <p>
+            <strong>Câu trả lời sai:</strong> <span id="wrongAnswers"></span>
+          </p>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn btn-success" id="retakeBtn">Làm lại</button>
+          <button class="btn btn-primary" id="backBtn">Quay lại</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2025 Quiz App. All rights reserved</p>
+    </footer>
+
+    <script src="/js/check-test.js"></script>
+  </body>
+</html>

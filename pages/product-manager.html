@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý bài test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/product-manager.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <a class="navbar-brand" href="#">QuizzForge</a>
+      <div class="nav-links">
+        <a href="#" id="goTo">Danh mục</a>
+        <a href="#">Bài test</a>
+        <a href="#" id="goBack">Đăng xuất</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="header">
+        <h2>Quản lý bài test</h2>
+      </div>
+
+      <div class="custom-controls">
+        <button class="btn-add-test" id="btnAddTest">Thêm bài test</button>
+        <div class="search">
+          <select id="sortSelect">
+            <option value="">Sắp xếp theo</option>
+            <option value="name">Tên bài test </option>
+            <option value="time">Thời gian</option>
+          </select>
+          <input type="text" id="searchInput" placeholder="Tìm kiếm theo tên" />
+        </div>
+      </div>
+
+      <table class="table table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Tên bài test</th>
+            <th>Danh mục</th>
+            <th>Số câu hỏi</th>
+            <th>Thời gian</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="testTableBody">
+        </tbody>
+      </table>
+
+      <nav>
+        <ul class="pagination"> 
+          
+        </ul>
+      </nav>
+    </div>
+
+    <div id="confirmDeleteModal" class="custom-modal">
+      <div class="custom-modal-content">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5>Xác nhận xóa</h5>
+        <p>Bạn có chắc chắn muốn xóa danh mục này không?</p>
+        <div class="custom-modal-footer">
+          <button type="button" class="btn btn-secondary btn-close-modal">Hủy</button>
+          <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Xóa</button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="categoryModal" class="custom-modal">
+        <div class="custom-modal-content">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 id="modalTitle">Xác nhận sửa thêm</h5>
+          <p id="modalBody">Bạn có muốn thêm sửa không ?</p>
+          <div class="custom-modal-footer">
+            <button type="button" class="btn btn-secondary btn-close-modal">Đóng</button>
+            <button type="button" class="btn btn-primary" id="saveCategoryBtn">Đồng ý</button>
+          </div>
+        </div>
+    </div>
+
+    <nav>
+      <ul class="pagination">
+      </ul>
+    </nav>
+
+    <footer class="footer">
+      <p>&copy; 2025 Quiz App. All rights reserved</p>
+    </footer>
+
+    <script src="/js/product-manager.js"></script>
+  </body>
+</html>
