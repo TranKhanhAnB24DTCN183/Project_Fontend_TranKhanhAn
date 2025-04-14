@@ -26,10 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const retakeBtn = document.getElementById("retakeBtn");
   const backBtn = document.getElementById("backBtn");
 
-  testTitle.textContent = test.name;
-  document.getElementById(
-    "timerTitle"
-  ).textContent = `Thời gian: ${test.time} phút`;
+  testTitle.textContent = test.name;document.getElementById("timerTitle").textContent = `Thời gian: ${test.time} phút`;
 
   // Hàm hiển thị đồng hồ đếm ngược
   const countdownElement = document.getElementById("countdown");
@@ -77,11 +74,11 @@ document.addEventListener("DOMContentLoaded", function () {
     radios.forEach((radio) => {
       radio.addEventListener("change", function () {
         userAnswers[index] = parseInt(this.value);
-        updateNavStatus(index); // Cập nhật trạng thái đã trả lời
+        updateNavStatus(index); 
       });
     });
 
-    updateNavActive(index); // Cập nhật trạng thái active cho navigation
+    updateNavActive(index); 
   }
 
   // Hàm tạo thanh điều hướng các câu hỏi
