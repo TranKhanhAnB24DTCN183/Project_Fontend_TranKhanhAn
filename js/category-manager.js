@@ -18,13 +18,11 @@ let categories = [
   { id: 14, name: "Giải trí", emoji: "🎭" },
 ];
 
-// Nếu có dữ liệu đã lưu trong localStorage thì sử dụng
 const savedCategories = localStorage.getItem("categories");
 if (savedCategories) {
   categories = JSON.parse(savedCategories);
 }
 
-// Hàm lưu danh mục vào localStorage
 function saveCategoriesToLocalStorage() {
   localStorage.setItem("categories", JSON.stringify(categories));
 }
@@ -132,11 +130,16 @@ function confirmDelete(id) {
   document.getElementById("confirmDeleteBtn").onclick = function () {
     categories = categories.filter((category) => category.id !== id);
     saveCategoriesToLocalStorage();
+
+    let testData = JSON.parse(localStorage.getItem("testData") || "[]");
+    testData = testData.filter(test => test.categoryId !== id);
+    localStorage.setItem("testData", JSON.stringify(testData));
     loadCategories();
     hideModal("confirmDeleteModal");
   };
   showModal("confirmDeleteModal");
 }
+
 
 // Hàm hiển thị lỗi
 function showError(message) {
