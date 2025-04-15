@@ -26,7 +26,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const retakeBtn = document.getElementById("retakeBtn");
   const backBtn = document.getElementById("backBtn");
 
-  testTitle.textContent = test.name;document.getElementById("timerTitle").textContent = `Thời gian: ${test.time} phút`;
+  testTitle.textContent = test.name;
+  document.getElementById(
+    "timerTitle"
+  ).textContent = `Thời gian: ${test.time} phút`;
 
   // Hàm hiển thị đồng hồ đếm ngược
   const countdownElement = document.getElementById("countdown");
@@ -54,7 +57,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Hàm hiển thị câu hỏi theo chỉ số index
   function renderQuestion(index) {
     const q = test.questions[index];
-    questionCounter.textContent = `Câu hỏi ${index + 1} trên ${test.questions.length}:`;
+    questionCounter.textContent = `Câu hỏi ${index + 1} trên ${
+      test.questions.length
+    }:`;
     questionText.textContent = q.questionText;
 
     optionsContainer.innerHTML = q.answers
@@ -62,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const isChecked = userAnswers[index] === answer.id ? "checked" : "";
         return `
         <div>
-          <input type="radio" name="answer" id="q${q.id}_a${i}" value="${answer.id}" ${isChecked}>
+          <input class="radio" type="radio" name="answer" id="q${q.id}_a${i}" value="${answer.id}" ${isChecked}>
           <label for="q${q.id}_a${i}">${answer.text}</label>
         </div>
       `;
@@ -70,15 +75,15 @@ document.addEventListener("DOMContentLoaded", function () {
       .join("");
 
     // Bắt sự kiện chọn đáp án
-    const radios = optionsContainer.querySelectorAll("input[type='radio']");
+    const radios = optionsContainer.querySelectorAll(".radio");
     radios.forEach((radio) => {
       radio.addEventListener("change", function () {
         userAnswers[index] = parseInt(this.value);
-        updateNavStatus(index); 
+        updateNavStatus(index);
       });
     });
 
-    updateNavActive(index); 
+    updateNavActive(index);
   }
 
   // Hàm tạo thanh điều hướng các câu hỏi
@@ -123,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Sự kiện nút Previous quay lại câu trước
+  // Sự kiện nút quay lại câu trước
   document.querySelector(".prev").addEventListener("click", () => {
     if (currentIndex > 0) {
       currentIndex--;

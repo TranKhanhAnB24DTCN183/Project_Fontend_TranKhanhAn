@@ -62,7 +62,7 @@ body {
   background: #198754;
   color: #ffffff;
 }
-.question-nav button.answered {
+  .question-nav button.answered {
   background-color: #0d6efd;
   color: #ffffff;
 }
