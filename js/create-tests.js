@@ -22,6 +22,20 @@ document.addEventListener("DOMContentLoaded", () => {
     categorySelect.appendChild(option);
   });
 
+  // Nếu có `editTestId` trong localStorage thì load dữ liệu để sửa bài test
+  const editTestId = localStorage.getItem("editTestId");
+  if (editTestId) {
+    const testToEdit = allTests.find(
+      (t) => String(t.id) === String(editTestId)
+    );
+    if (testToEdit) {
+      nameInput.value = testToEdit.name;
+      timeInput.value = testToEdit.time;
+      categorySelect.value = testToEdit.categoryId;
+      renderQuestions(testToEdit.questions);
+    }
+  }
+
   // Xử lý khi người dùng chọn danh mục để điền tự động tên, thời gian, câu hỏi
   categorySelect.addEventListener("change", function () {
     const selectedCategoryId = parseInt(this.value);
